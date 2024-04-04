@@ -29,3 +29,23 @@ h2 {
     border-radius: 5px;
 }
 
+.adicionar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 25px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+
+
