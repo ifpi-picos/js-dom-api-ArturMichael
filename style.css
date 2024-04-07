@@ -1,0 +1,39 @@
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.title {
+    background: blue;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+}
+
+#adicionarTarefa {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: blue;
+    color: #fff;
+    border: none;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
