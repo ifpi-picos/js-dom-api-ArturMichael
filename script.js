@@ -78,3 +78,61 @@ function atualizarLocalStorage() {
 
 
 carregarTarefas();
+
+
+const usernameInput = document.getElementById('username');
+const repositoriesContainer = document.getElementById('repositories');
+const buscarRepositoriosButton = document.getElementById('buscar-repositorios');
+
+buscarRepositoriosButton.addEventListener('click', async () => {
+  const username = usernameInput.value.trim();
+
+  if (!username) {
+    alert('Por favor, digite o nome de usuário do GitHub!');
+    return;
+  }
+
+  try {
+    const url = `https://api.github.com/search/repositories?q=user:${username}`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Erro ao buscar repositórios: ${response.status}`);
+    }
+
+    const data = await response.json(); 
+
+    const repositories = data.items; 
+
+    repositoriesContainer.innerHTML = ''; 
+
+    if (repositories.length === 0) {
+      repositoriesContainer.innerHTML = `<p>Nenhum repositório público encontrado para o usuário ${username}.</p>`;
+    } else {
+      for (const repo of repositories) {
+        const repositoryElement = document.createElement('div');
+        repositoryElement.classList.add('repository');
+
+        const nameElement = document.createElement('h2');
+        nameElement.innerText = repo.name;
+
+        const descriptionElement = document.createElement('p');
+        descriptionElement.innerText = repo.description;
+
+        const linkElement = document.createElement('a');
+        linkElement.href = repo.html_url;
+        linkElement.innerText = 'Ver repositório';
+
+        repositoryElement.appendChild(nameElement);
+        repositoryElement.appendChild(descriptionElement);
+        repositoryElement.appendChild(linkElement);
+
+        repositoriesContainer.appendChild(repositoryElement);
+      }
+    }
+  } catch (error) {
+    console.error(error);
+    alert('Erro ao buscar repositórios!');
+  }
+}); 
+
