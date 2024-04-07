@@ -10,7 +10,7 @@ document.getElementById("adicionarTarefa").addEventListener("click", function() 
 
         novaTarefa.querySelector(".excluir").addEventListener("click", function() {
             novaTarefa.remove();
-            atualizarLocalStorage();
+            atualizarLocalStorage(); 
         });
 
         novaTarefa.querySelector(".concluir").addEventListener("click", function() {
@@ -21,7 +21,6 @@ document.getElementById("adicionarTarefa").addEventListener("click", function() 
         document.getElementById("listaTarefas").appendChild(novaTarefa);
         document.getElementById("novaTarefa").value = "";
 
-        
         salvarTarefaLocalStorage(novaTarefaTexto);
     } else {
         alert("Por favor, insira uma tarefa.");
@@ -37,7 +36,6 @@ function salvarTarefaLocalStorage(tarefa) {
     tarefas.push(tarefa);
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
-
 
 function carregarTarefas() {
     var tarefas = JSON.parse(localStorage.getItem("tarefas"));
@@ -69,7 +67,6 @@ function criarTarefa(texto) {
     document.getElementById("listaTarefas").appendChild(novaTarefa);
 }
 
-
 function atualizarLocalStorage() {
     var tarefas = [];
     var listaTarefas = document.getElementById("listaTarefas").children;
@@ -78,5 +75,6 @@ function atualizarLocalStorage() {
     }
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
+
 
 carregarTarefas();
