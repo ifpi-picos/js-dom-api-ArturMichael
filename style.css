@@ -52,7 +52,7 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .concluir, .excluir {
